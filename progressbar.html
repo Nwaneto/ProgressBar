@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #progress {
+          width: 50%;
+          background-color: #ddd;
+          border-radius: 25px;
+        }
+        
+        #bar {
+          width: 50%;
+          height: 20px;
+          border-radius: 25px;
+          background-color: #4CAF50;
+          text-align: center;
+          color: white;
+        }
+        #progressBtn{
+            background-color: blue;
+            height: 40px;
+            border-radius: 5px;
+            color: white;
+            width: 20%;
+            margin-left: 15%;
+        }
+        </style>
+</head>
+<body>
+    <div>
+        <h3>
+            Progress bar Accessment
+        </h3>
+
+        <div id="progress">
+            <div id="bar" style="background-color: rgb(16, 194, 16);">
+                50%
+            </div>
+        </div>
+        <br>
+        <div id="progress">
+            <div id="bar" style="background-color: rgb(126, 29, 69);">
+                50%
+            </div>
+        </div>
+        <br>
+        <div id="progress">
+            <div id="bar" style="background-color: rgb(245, 248, 245);">
+                50%
+            </div>
+        </div>
+        <br>
+        <div id="progress">
+            <div id="bar" style="background-color: rgb(16, 99, 194);">
+                50%
+            </div>
+        </div>
+        <br>
+        <div id="progress">
+            <div id="bar" style="background-color: rgb(182, 136, 12);">
+                50%
+            </div>
+        </div>
+
+
+    </div>
+
+    <br>
+    <input type="submit" id="progressBtn" onclick="move()" />
+
+    <script type="text/javascript">
+        var i = 0;
+        
+        function move() {
+            var allbars = document.querySelectorAll("[id='bar']");
+            allbars.forEach(element => {
+                var width = 50;
+                var id = setInterval(frame, 50);
+                function frame() {
+                    if (width >= 100) {
+                        clearInterval(id);
+                        i ++;
+                    } else {
+                        width++;
+                        element.style.width = width + "%";
+                        element.innerHTML = width  + "%";
+                    }
+                }
+            });
+        }
+    </script>
+</div>
+</body>
+</html>
